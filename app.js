@@ -1,22 +1,22 @@
-function solution(n) {
-  const arr = [];
-
-  for (let i = 1; i <= n; i++) arr.push(i);
-
-  for (let i = 1; i * i < n; i++) {
-    if (arr[i]) {
-      const num = arr[i];
-      for (let k = num * num; k <= n; k += num) {
-        arr[k - 1] = 0;
+function solution(s, n) {
+  const temp = s.sort((a, b) => {
+    if (a[n] > b[n]) {
+      return 1;
+    } else if (a[n] < b[n]) {
+      return -1;
+    } else {
+      if (a > b) {
+        return 1;
+      } else {
+        return -1;
       }
     }
-  }
+  });
 
-  const answer = arr.filter((number) => number);
-  answer.shift();
-
-  return answer.length;
+  return temp;
 }
 
-console.log(solution(10));
-console.log(solution(5));
+console.log(solution(["sun", "bed", "car"], 1));
+console.log(solution(["abce", "abcd", "cdx"], 2));
+console.log(solution(["ae", "be", "ce", "ae"], 1));
+console.log(solution(["zbcde", "ybcdf", "xbcdg"], 1));
