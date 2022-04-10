@@ -48,4 +48,15 @@ cur : array의 n번째 index의 값
     'a'.localeCompare('a'); // 0
     ```
 
-    
+
+
+### 배열 슬라이딩
+
+- 배열의 특정 인덱스에서 다른 특정인텍스까지가 담긴 새로운 배열을 뽑아내는 기법
+
+- substr(), substring(), slice() 존재
+
+
+
+- substr()은 오래된 함수로 사용을 권장하지 않음
+- substring과 slice 사용을 권장하는데 이 중 slice는 음수를 통한 슬라이딩이 가능하므로 사용을 권장함
