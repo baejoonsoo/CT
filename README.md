@@ -43,12 +43,10 @@ cur : array의 n번째 index의 값
   - 같은 우선 순위(같은 문자열)이라면 0
 
     ```javascript
-    'a'.localeCompare('c'); // -1
-    'check'.localeCompare('against'); // 1
-    'a'.localeCompare('a'); // 0
+    "a".localeCompare("c"); // -1
+    "check".localeCompare("against"); // 1
+    "a".localeCompare("a"); // 0
     ```
-
-
 
 ### 배열 슬라이딩
 
@@ -56,7 +54,47 @@ cur : array의 n번째 index의 값
 
 - substr(), substring(), slice() 존재
 
-
-
 - substr()은 오래된 함수로 사용을 권장하지 않음
 - substring과 slice 사용을 권장하는데 이 중 slice는 음수를 통한 슬라이딩이 가능하므로 사용을 권장함
+
+### Array.fill()
+
+- 배열의 시작 인덱스부터 끝 인덱스의 이전까지 하나의 값으로 채움
+
+- 구문
+
+  ```javascript
+  arr.fill(value, start, end]])
+  ```
+
+  - value : 배열을 채울 값.
+
+  - start `Optional` : 시작 인덱스, 기본 값은 0.
+  - end `Optional` : 끝 인덱스, 기본 값은 `this.length`.
+
+
+- start와 end는 음수를 사용할 수 있으며 음수를 사용할 시 (length+start), (length+end)를 의미한다
+
+
+
+- 예시
+
+  ```js
+  const array1 = [1, 2, 3, 4];
+  
+  console.log(array1.fill(0, 2, 4));
+  // expected output: [1, 2, 0, 0]
+  
+  // fill with 5 from position 1
+  console.log(array1.fill(5, 1));
+  // expected output: [1, 5, 5, 5]
+  
+  console.log(array1.fill(6));
+  // expected output: [6, 6, 6, 6]
+  
+  console.log(array1.fill(8,-2));
+  // expected output: [1, 2, 8, 8]
+  
+  console.log(array1.fill(9,-3,-1));
+  // expected output: [1, 9, 9, 4]
+  ```
