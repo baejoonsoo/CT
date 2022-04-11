@@ -115,3 +115,10 @@ console.log(found);
 // expected output: 12
 ```
 
+
+
+##### [js의 array는 object이다](https://programmers.co.kr/learn/courses/30/lessons/42576/solution_groups?language=javascript)
+
+- array에 key, value로 저장 가능
+
+- 단 property이기에 forEach를 통해 key, value를 얻지는 못한다

@@ -1,16 +1,18 @@
-function solution(n, lost, reserve) {
-  return (
-    n -
-    lost.filter((a) => {
-      const b = reserve.find((r) => Math.abs(r - a) <= 1);
-      if (!b) return true;
-      reserve = reserve.filter((r) => r !== b);
-    }).length
-  );
-}
+var solution = (participant, completion) => {
+  completion.map((name) => {
+    console.log(completion);
+    return (completion[name] = (completion[name] | 0) + 1);
+  });
+  return participant.find((name) => !completion[name]--);
+};
 
-console.log(solution(5, [2, 4], [1, 3, 5]));
-console.log(solution(5, [2, 4], [3]));
-console.log(solution(3, [3], [1]));
-console.log(solution(3, [3], [3]));
-console.log(solution(5, [4, 2], [3, 5]));
+console.log(solution(["leo", "kiki", "eden"], ["eden", "kiki"]));
+console.log(
+  solution(
+    ["marina", "josipa", "nikola", "vinko", "filipa"],
+    ["josipa", "filipa", "marina", "nikola"]
+  )
+);
+console.log(
+  solution(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"])
+);
