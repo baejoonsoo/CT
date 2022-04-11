@@ -98,3 +98,20 @@ cur : array의 n번째 index의 값
   console.log(array1.fill(9,-3,-1));
   // expected output: [1, 9, 9, 4]
   ```
+
+
+
+### array.find()
+
+- 판별 함수를 만족하는 첫 번째 요소의 값을 반환한다
+- 만족하는 요소가 없다면 `undefined`를 반환한다
+
+```javascript
+const array1 = [5, 12, 8, 130, 44];
+
+const found = array1.find(element => element > 10);
+
+console.log(found);
+// expected output: 12
+```
+
