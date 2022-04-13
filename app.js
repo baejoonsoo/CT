@@ -1,27 +1,30 @@
-const numStr = [
-  "zero",
-  "one",
-  "two",
-  "three",
-  "four",
-  "five",
-  "six",
-  "seven",
-  "eight",
-  "nine",
-];
+function solution(new_id) {
+  new_id = new_id.toLowerCase();
+  new_id = new_id
+    .split(/[^a-z0-9-_.]/gm)
+    .join("")
+    .split(/\.+/gm)
+    .join(".");
 
-function solution(s) {
-  numStr.forEach((num, index) => {
-    const arr = s.split(num);
-    s = arr.join(index);
-  });
+  if (new_id[0] === ".") new_id = new_id.slice(1);
+  if (new_id[new_id.length - 1] === ".") new_id = new_id.slice(0, -1);
 
-  return Number(s);
+  if (!new_id.length) new_id += "a";
+
+  if (new_id.length >= 16) new_id = new_id.slice(0, 15);
+  if (new_id[new_id.length - 1] === ".") new_id = new_id.slice(0, -1);
+
+  if (new_id.length <= 2) {
+    for (let i = 0; i <= 3 - new_id.length; i++) {
+      new_id += new_id[new_id.length - 1];
+    }
+  }
+
+  return new_id;
 }
 
-console.log(solution("one4seveneight"));
-console.log(solution("23four5six7"));
-console.log(solution("2three45sixseven"));
-console.log(solution("123"));
-console.log(solution("11zerozero323"));
+console.log(solution("...!@BaT#*..y.abcdefghijklm."));
+console.log(solution("z-+.^."));
+console.log(solution("=.="));
+console.log(solution("123_.def"));
+console.log(solution("abcdefghijklmn.p"));

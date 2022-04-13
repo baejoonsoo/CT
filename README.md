@@ -120,5 +120,24 @@ console.log(found);
 ##### [js의 array는 object이다](https://programmers.co.kr/learn/courses/30/lessons/42576/solution_groups?language=javascript)
 
 - array에 key, value로 저장 가능
-
 - 단 property이기에 forEach를 통해 key, value를 얻지는 못한다
+
+
+
+### string.padEnd()
+
+```js
+str.padEnd(targetLength [, padString])
+```
+
+- targetLength
+
+  목표 문자열 길이. 현재 문자열의 길이보다 작다면 채워넣지 않고 그대로 반환.
+
+- padString
+
+  현재 문자열에 채워넣을 다른 문자열. 
+
+  문자열이 너무 길어 목표 문자열 길이를 초과한다면 좌측 일부를 잘라서 넣음. 
+
+  기본값은 " "
