@@ -141,3 +141,32 @@ str.padEnd(targetLength [, padString])
   문자열이 너무 길어 목표 문자열 길이를 초과한다면 좌측 일부를 잘라서 넣음. 
 
   기본값은 " "
+
+
+
+### String.replace()
+
+- 어떤 패턴에 일치하는 일부 또는 모든 부분이 교체된 새로운 문자열을 반환
+
+```js
+// 구문
+var newStr = str.replace(regexp|substr, newSubstr|function)
+```
+
+
+
+- regexp (pattern)
+
+  `newSubStr`로 대체 될 정규식
+
+- substr (pattern)
+
+  `newSubStr`로 대체 될 `String`. 정규식이 아닌 글자 그대로의 문자열로 처리
+
+- newSubStr (replacement)
+
+  첫번째 파라미터를 대신할 문자열
+
+- function (replacement)
+
+  주어진 `regexp` 또는 `substr`에 일치하는 요소를 대체하는 데 사용될 새 하위 문자열을 생성하기 위해 호출되는 함수
