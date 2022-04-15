@@ -375,7 +375,7 @@ var newStr = str.replace(regexp|substr, newSubstr|function)
 
 #### `*`
 
--  0개 이상이다
+- 0개 이상이다
 
   ```markdown
   n\d* : n 뒤에 숫자가 0개 이상이라는 의미. "n", “n1”, “n123” 에 모두 매치된다.
@@ -385,7 +385,7 @@ var newStr = str.replace(regexp|substr, newSubstr|function)
 
 #### `+`
 
--  1개 이상이다.
+- 1개 이상이다.
 
   ```markdown
   n\d+ : “n” 뒤에 숫자가 1개 이상이다. “n1”, “n123″에 매치되지만 “n” 에는 매치되지 않는다.
