@@ -1,20 +1,43 @@
-function solution(dartResult) {
-  const bonus = { S: 1, D: 2, T: 3 },
-    options = { "*": 2, "#": -1, undefined: 1 };
-
-  let darts = dartResult.match(/\d.?\D/g);
-
-  for (let i = 0; i < darts.length; i++) {
-    let split = darts[i].match(/(^\d{1,})(S|D|T)(\*|#)?/),
-      score = Math.pow(split[1], bonus[split[2]]) * options[split[3]];
-
-    if (split[3] === "*" && darts[i - 1]) darts[i - 1] *= options["*"];
-
-    darts[i] = score;
+const addNewBoard = (board) => {
+  const newBoard = [];
+  for (let i = 0; i < board[0].length; i++) {
+    const temp = [];
+    for (let k = 0; k < board.length; k++) {
+      if (board[k][i]) temp.unshift(board[k][i]);
+    }
+    newBoard.push(temp);
   }
 
-  return darts.reduce((a, b) => a + b);
+  return newBoard;
+};
+
+function solution(board, moves) {
+  const newBoard = addNewBoard(board);
+  let basket = [];
+  let removeCount = 0;
+
+  moves.forEach((move) => {
+    if (newBoard[move - 1].length) {
+      basket.push(newBoard[move - 1].pop());
+      if (basket[basket.length - 1] === basket[basket.length - 2]) {
+        basket = basket.slice(0, -2);
+        removeCount++;
+      }
+    }
+  });
+
+  return removeCount * 2;
 }
 
-console.log(solution("1S2D*3T"));
-console.log(solution("10D2S10D"));
+console.log(
+  solution(
+    [
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 0, 3],
+      [0, 2, 5, 0, 1],
+      [4, 2, 4, 4, 2],
+      [3, 5, 1, 3, 1],
+    ],
+    [1, 5, 3, 5, 1, 2, 1, 4]
+  )
+);
