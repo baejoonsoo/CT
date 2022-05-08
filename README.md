@@ -464,3 +464,16 @@ var newStr = str.replace(regexp|substr, newSubstr|function)
 | 피연산자가 `NaN`인 경우                | (7 ** NaN)                               |
 | 정의할 수 없는 계산식                  | (0 * Infinity)                           |
 | 문자열을 포함하면서 덧셈이 아닌 계산식 | ("안녕" / 3)                             |
+
+
+
+### `isNaN()` vs `Number.isNaN()`
+
+- 두 함수 모두 값이 NaN인지를 판별한다
+
+- 차이점
+
+  | isNaN()                                                      | Number.isNaN                               |
+  | ------------------------------------------------------------ | ------------------------------------------ |
+  | 인자로 들어온 값을 number로 변환한 이후 NaN이라면 true를 반환한다 | 인자로 들어온 값이 NaN이어야만 true를 반환 |
+  | isNaN("js")  // true                                         | Number.NaN("js")  // false                 |
