@@ -1,11 +1,25 @@
 const solution = (s) => {
-  const numList = s.split(" ").map((s) => parseInt(s));
-  const max = Math.max(...numList);
-  const min = Math.min(...numList);
+  const stack = [];
+  const t = s.split("");
 
-  return `${min} ${max}`;
+  for (let i = 0; i < t.length; i++) {
+    if (t[i] === "(") {
+      stack.push("(");
+    } else {
+      if (stack[stack.length - 1] === "(") {
+        stack.pop();
+      } else {
+        return false;
+      }
+    }
+  }
+  if (stack[stack.length - 1] === "(") {
+    return false;
+  }
+  return true;
 };
 
-console.log(solution("1 2 3 4"));
-console.log(solution("-1 -2 -3 -4"));
-console.log(solution("-1 -1"));
+console.log(solution("()()"));
+console.log(solution("(())()"));
+console.log(solution(")()("));
+console.log(solution("(()("));
