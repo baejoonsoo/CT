@@ -1,12 +1,11 @@
-const solution = (n) => {
-  let memo = [0, 1, 1];
-  for (let i = 3; i <= n; i++) {
-    memo[i] = (memo[i - 1] + memo[i - 2]) % 1234567;
-  }
-  return memo[n];
+const solution = (s) => {
+  const numList = s.split(" ").map((s) => parseInt(s));
+  const max = Math.max(...numList);
+  const min = Math.min(...numList);
+
+  return `${min} ${max}`;
 };
 
-console.log(solution(2));
-console.log(solution(3));
-console.log(solution(5));
-console.log(solution(1000));
+console.log(solution("1 2 3 4"));
+console.log(solution("-1 -2 -3 -4"));
+console.log(solution("-1 -1"));
