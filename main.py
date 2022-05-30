@@ -1,14 +1,16 @@
-number=int(input())
+codeup=[
+' ****  ***  ***   ***** *   * ****',
+'*     *   * *  *  *     *   * *   *',
+'*     *   * *   * *     *   * *   *',
+'*     *   * *   * ****  *   * ****',
+'*     *   * *   * *     *   * *',
+'*     *   * *  *  *     *   * *',
+" ****  ***  ***   *****  ***  *"]
 
-count=0
+w,h=map(int,input().split())
 
-while number!=1:
-  if number%3==0:
-    number/=3
-  elif number%2==0:
-    number/=2
-  else:
-    number-=1
-  count+=1
-
-print(count)
+for s in codeup:
+  for i in range(h):
+    for k in range(len(s)):
+      print(s[k]*w,end='')
+    print('0')
