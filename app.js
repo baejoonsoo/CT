@@ -1,14 +1,26 @@
-const solution = (n) => {
-  const nCount = n.toString(2).match(/1/g).length;
-  let i = n + 1;
+const solution = (clothes) => {
+  let hash = {};
 
-  while (true) {
-    if (i.toString(2).match(/1/g).length === nCount) {
-      return i;
-    }
-    i++;
-  }
+  clothes.forEach((clothe) => {
+    const [_, key] = clothe;
+    hash[key] = (hash[key] || 0) + 1;
+  });
+
+  return Object.keys(hash).reduce((acc, cur) => acc * (hash[cur] + 1), 1) - 1;
 };
 
-console.log(solution(78));
-console.log(solution(15));
+console.log(
+  solution([
+    ["yellowhat", "headgear"],
+    ["bluesunglasses", "eyewear"],
+    ["green_turban", "headgear"],
+  ])
+);
+
+console.log(
+  solution([
+    ["crowmask", "face"],
+    ["bluesunglasses", "face"],
+    ["smoky_makeup", "face"],
+  ])
+);
