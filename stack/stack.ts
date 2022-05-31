@@ -1,5 +1,5 @@
 class Stack<T> {
-  private items: T[];
+  private items: T[] = [];
 
   constructor(...data: T[]) {
     this.items = [...data];
