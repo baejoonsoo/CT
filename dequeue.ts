@@ -19,4 +19,16 @@ class Dequeue<T> {
   pop_back(): T {
     return this.list.pop();
   }
+
+  size(): number {
+    return this.list.length;
+  }
+
+  isEmpty(): boolean {
+    return !this.list.length;
+  }
+
+  clear(): void {
+    this.list = [];
+  }
 }
