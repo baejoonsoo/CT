@@ -73,3 +73,24 @@ console.log(
     ]
   )
 );
+
+/*
+function solution(fees, records) {
+    const parkingTime = {};
+    records.forEach(r => {
+        let [time, id, type] = r.split(' ');
+        let [h, m] = time.split(':');
+        time = (h * 1) * 60 + (m * 1);
+        if (!parkingTime[id]) parkingTime[id] = 0;
+        if (type === 'IN') parkingTime[id] += (1439 - time); // 23:59에서 들어온 시간 뺀 값 저장 // 나온 시간이 찍히지 않은 경우 out에서 처리하지 않아 23:59분까지의 시간이 더해짐
+        if (type === 'OUT') parkingTime[id] -= (1439 - time); // 23:59에서 나온 시간 뺀 값 저장
+    });
+    const answer = [];
+    for (let [car, time] of Object.entries(parkingTime)) {
+        if (time <= fees[0]) time = fees[1];
+        else time = Math.ceil((time - fees[0]) / fees[2]) * fees[3] + fees[1]
+        answer.push([car, time]);
+    }
+    return answer.sort((a, b) => a[0] - b[0]).map(v => v[1]);
+} 
+*/
