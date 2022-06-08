@@ -477,3 +477,9 @@ var newStr = str.replace(regexp|substr, newSubstr|function)
   | ------------------------------------------------------------ | ------------------------------------------ |
   | 인자로 들어온 값을 number로 변환한 이후 NaN이라면 true를 반환한다 | 인자로 들어온 값이 NaN이어야만 true를 반환 |
   | isNaN("js")  // true                                         | Number.NaN("js")  // false                 |
+
+
+
+### Object.entries()
+
+- key와 value를 배열 형태로 return함
