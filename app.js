@@ -1,30 +1,23 @@
-const solution = (jobs) => {
-  let time = 0;
-  let workingTime = 0;
-  let queue = [];
-  let isWork = false;
-  jobs = jobs.sort((a, b) => a[0] - b[0]);
+function solution(number) {
+  let count = 0;
 
-  while (jobs.length) {
-    const newWork = jobs.find((job) => job[0] === workingTime);
-    if (newWork) {
-      queue.push(newWork);
+  while (true) {
+    if (number === 1) {
+      return count;
+    }
+    if (count === 500) {
+      return -1;
     }
 
-    if (!isWork) {
-      queue = queue.sort((a, b) => a[1] - b[1]);
-      isWork = true;
-      work;
+    if (number % 2 === 0) {
+      number /= 2;
+    } else {
+      number = number * 3 + 1;
     }
-
-    time++;
+    count++;
   }
-};
+}
 
-console.log(
-  solution([
-    [0, 3],
-    [1, 9],
-    [2, 6],
-  ])
-);
+console.log(solution(6));
+console.log(solution(16));
+console.log(solution(626331));
