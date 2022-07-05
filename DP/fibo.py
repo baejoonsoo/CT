@@ -1,14 +1,15 @@
-f1=1
-
-def fib(n):
-  global f1
-  if n<3:
-    return 1  # 코드1
-  f1+=1
-  return fib(n - 1) + fib(n - 2)
-
 n=int(input())
 
-fib(n)
 
-print(f1,n-2)
+def fib(n):
+  memo=[0]*(n+1)
+  memo[0]=1
+  memo[1]=1
+
+  for i in range(2,n+1):
+    memo[i]=(memo[i-1]+memo[i-2]*2)%10007
+  
+  return memo[n]
+
+
+print(fib(n))
